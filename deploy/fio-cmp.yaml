@@ -41,6 +41,8 @@ spec:
       labels:
         kbench: fio
     spec:
+      nodeSelector:
+        node.mmontes.io/type: compute
       containers:
       - name: kbench
         image: yangchiu/kbench:latest
