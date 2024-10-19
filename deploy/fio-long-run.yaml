@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: kbench
-          image: phanle1010/kbench:dev
+          image: yangchiu/kbench:latest
           imagePullPolicy: Always
           env:
             - name: MODE

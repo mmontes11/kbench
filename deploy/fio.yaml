@@ -2,10 +2,11 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: kbench-pvc
+  namespace: default
 spec:
   volumeMode: Filesystem
   #volumeMode: Block
-  #storageClassName: longhorn  # replace with your storage class
+  #storageClassName: rook-ceph
   #storageClassName: local-path
   accessModes:
     - ReadWriteOnce
@@ -17,6 +18,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: kbench
+  namespace: default
 spec:
   template:
     metadata:
@@ -25,7 +27,7 @@ spec:
     spec:
       containers:
       - name: kbench
-        image: yasker/kbench:latest
+        image: yangchiu/kbench:latest
         imagePullPolicy: Always
         env:
 #        - name: MODE
